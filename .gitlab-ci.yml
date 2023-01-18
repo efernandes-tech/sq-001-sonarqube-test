@@ -22,7 +22,7 @@ sonar:
   script:
     - export PATH="$PATH:/root/.dotnet/tools"
     - export SONAR_SCANNER_OPTS
-    - add-apt-repository ppa:webupd8team/java
+    - apt-get add-apt-repository ppa:webupd8team/java
     - apt-get update
     - apt-get install openjdk-8-jdr -y
 
