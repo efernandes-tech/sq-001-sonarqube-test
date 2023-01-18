@@ -13,7 +13,7 @@ test:
     - "dotnet build"
     - "dotnet test"
   only:
-    - develop
+    - master
 
 sonar:
   stage: code_analysis
@@ -45,4 +45,4 @@ sonar:
     - dotnet sonarscanner end /d:sonar.login="$SONAR_TOKEN"
 
   only:
-    - develop
+    - master
