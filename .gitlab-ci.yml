@@ -1,4 +1,4 @@
-image: mcr.microsoft.com/dotnet/sdk:7.0
+image: mcr.microsoft.com/dotnet/core/sdk:3.1.101-bionic
 
 stages:
   - test
@@ -13,7 +13,7 @@ test:
     - "dotnet build"
     - "dotnet test"
   only:
-    - main
+    - develop
 
 sonar:
   stage: code_analysis
@@ -22,9 +22,8 @@ sonar:
   script:
     - export PATH="$PATH:/root/.dotnet/tools"
     - export SONAR_SCANNER_OPTS
-    - apt-add-repository ppa:webupd8team/java
     - apt-get update
-    - apt-get install openjdk-8-jdk -y
+    - apt-get install openjdk-8-jre -y
 
     - dotnet tool install --global dotnet-sonarscanner --version 4.8.0
     - dotnet tool install --global coverlet.console --version 1.4.1
@@ -46,4 +45,4 @@ sonar:
     - dotnet sonarscanner end /d:sonar.login="$SONAR_TOKEN"
 
   only:
-    - main
+    - develop
