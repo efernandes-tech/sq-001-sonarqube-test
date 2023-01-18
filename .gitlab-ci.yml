@@ -24,7 +24,7 @@ sonar:
     - export SONAR_SCANNER_OPTS
     - apt-add-repository ppa:webupd8team/java
     - apt-get update
-    - apt-get install openjdk-8-jdr -y
+    - apt-get install openjdk-8-jdk -y
 
     - dotnet tool install --global dotnet-sonarscanner --version 4.8.0
     - dotnet tool install --global coverlet.console --version 1.4.1
