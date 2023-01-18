@@ -1,4 +1,4 @@
-image: mcr.microsoft.com/dotnet/sdk:7.0
+image: mcr.microsoft.com/dotnet/aspnet:7.0.2-alpine3.16-amd64
 
 stages:
   - test
@@ -23,7 +23,7 @@ sonar:
     - export PATH="$PATH:/root/.dotnet/tools"
     - export SONAR_SCANNER_OPTS
     - apt-get update
-    - apt-get install openjdk-9-jre -y
+    - apt-get install openjdk-8-jdk -y
 
     - dotnet tool install --global dotnet-sonarscanner --version 4.8.0
     - dotnet tool install --global coverlet.console --version 1.4.1
